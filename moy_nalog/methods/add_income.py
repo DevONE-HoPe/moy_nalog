@@ -60,7 +60,7 @@ class AddIncomeMethod(BaseMethod):
         return f"{BASE_URL}/receipt/{inn}/{approved_receipt_uuid}"
 
     async def _make_request(self) -> dict:
-        return self._api.post(self.BASE_URL, self.body)
+        return await self._api.post(self.BASE_URL, self.body)
 
     async def execute(self) -> Income:
         response = await self._make_request()
